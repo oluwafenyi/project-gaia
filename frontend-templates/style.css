@@ -785,7 +785,7 @@ textarea:focus {
     border: 1px solid goldenrod;
     padding: 0 15px 0 50px;
     font-size: 14px;
-    color: lightgoldenrodyellow;
+    color: #4c4c4c;
     font-weight: 600;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
