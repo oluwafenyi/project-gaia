@@ -1,6 +1,11 @@
 index.html
 regular-page.html
 instructors.html
+
 .sass-cache/
 .tmp.drivedownload/
 .vscode/
+.python-version
+env/
+__pycache__/
+db.sqlite3
