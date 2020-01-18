@@ -45,6 +45,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'gaia_extras': 'gaia.templatetags.gaia_extras',
+            }
         },
     },
 ]
@@ -82,8 +85,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+OUR_CONTACT_INFO = {
+    'tel': '+2348108667883',
+    'email': 'info@geoscience.com',
+    'facebook': '',
+    'twitter': '',
+    'instagram': '',
+}
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'gaia', 'static'),
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

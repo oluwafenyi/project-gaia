@@ -1,4 +1,6 @@
 {% load static %}
+{% load gaia_extras %}
+
 <!DOCTYPE html>
 
 <head lang="en">
@@ -38,15 +40,15 @@
             <div class="top-header-area d-flex justify-content-between align-items-center">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <a href="tel:+2348108667883"><span>Phone:</span> +234 810 866 7883</a>
-                    <a href="mailto:info@geoscience.com"><span>Email:</span> info@geoscience.com</a>
+                    <a href="tel:{{ tel }}"><span>Phone:</span>{{ tel | phone_number }}</a>
+                    <a href="mailto:{{ email }}"><span>Email:</span> {{ email }}</a>
                 </div>
                 <!-- Follow Us -->
                 <div class="follow-us">
                     <span>Follow us</span>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="{{ facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="{{ instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="{{ twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
 
