@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+    <!-- ##### Best Tutors Area Start ##### -->
+    <section class="best-tutors-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Our Excos</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="tutors-slide owl-carousel">
+
+                        {% for exco in excos %}
+                       <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                {% if exco.image %}
+                                <img src="{{ exco.image }}" alt="{{ exco.full_name }}">
+                                {% else %}
+                                <img src="{% static 'img/exc/blank_person.png' %}" alt="default">
+                                {% endif %}
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>{{ exco.full_name }}</h5>
+                                <span>{{ exco.position }}</span>
+                                <div class="social-info">
+                                    <a href="whatsapp.com/08108667883"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="instagram.com/tobesh_01"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Best Tutors Area End ##### -->
+
+    <!-- ##### Top Lecturer Area Start ##### -->
+    <section class="top-Lecturer-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Our Lecturers</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for lecturer in lecturers %}
+                    <!-- Single Lecturer -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                                <img src="{% static 'img/exc/blank_person.png' %}" alt="default">
+                            </div>
+                            <div class="instructor-info">
+                                <h5>{{ lecturer.full_name }}</h5>
+                                <span>Lecturer</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Top Lecturer Area End ##### -->
+
+{% endblock body %}
