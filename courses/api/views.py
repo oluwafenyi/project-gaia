@@ -3,7 +3,6 @@ from django.views import View
 from django.http import JsonResponse, HttpResponseBadRequest
 
 from ..models import Course
-from ..views import CATEGORIES
 
 
 class CoursesListAPIView(View):
@@ -27,7 +26,7 @@ class CoursesListAPIView(View):
                 course_list.append({
                     'title': course.title,
                     'code': course.code,
-                    'category': CATEGORIES[course.category],
+                    'category': dict(Course.CATEGORIES)[course.category],
                     'units': course.units,
                     'description': course.description,
                     'drive_link': course.drive_link,

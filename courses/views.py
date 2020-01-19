@@ -8,19 +8,12 @@ from .models import Course
 from gaia.views import ExtendedView
 
 
-CATEGORIES = {
-    '1': 'Geology',
-    '2': 'Geophysics',
-    '3': 'Others',
-}
-
-
 class CoursesListView(ExtendedView):
     paginate_by = 9
     category = None
 
     def get(self, request):
-        category = CATEGORIES[self.category]
+        category = dict(Course.CATEGORIES)[self.category]
         courses = Course.objects\
             .filter(category=self.category).order_by('code')
         paginator = Paginator(courses, self.paginate_by)
