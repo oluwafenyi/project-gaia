@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load gaia_extras %}
 
 
 {% block title %}
@@ -29,11 +30,11 @@
                             </li>
                             <li>
                                 <h6><i class="fa fa-phone" aria-hidden="true"></i> Number</h6>
-                                <h6>+234 810 866 7883</h6>
+                                <h6>{{ tel | phone_number }}</h6>
                             </li>
                             <li>
                                 <h6><i class="fa fa-envelope" aria-hidden="true"></i> Email</h6>
-                                <h6>info@geoscience.com</h6>
+                                <h6>{{ email }}</h6>
                             </li>
                             <li>
                                 <h6><i class="fa fa-map-pin" aria-hidden="true"></i> Address</h6>

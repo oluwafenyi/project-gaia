@@ -12,7 +12,11 @@ class Person(models.Model):
         return self.full_name()
 
     def full_name(self):
-        return '{}. {} {}'.format(self.title, self.first_name, self.last_name)
+        if self.title:
+            return '{}. {} {}'.format(
+                self.title, self.first_name, self.last_name
+            )
+        return '{} {}'.format(self.first_name, self.last_name).strip()
 
     class Meta:
         abstract = True
