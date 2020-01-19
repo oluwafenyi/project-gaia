@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage
 from django.views import View
 from django.http import JsonResponse
-from django.urls import reverse
 
 from .models import Course
 from gaia.views import ExtendedView
@@ -29,8 +28,6 @@ class GeologyCoursesListView(ExtendedView):
             'courses': first_page,
             'category': category,
             'next': first_page.has_next(),
-            'category_api': reverse('{}_course_list_api'
-                                    .format(category.lower())),
         }
         context.update(self.contact_context)
         return render(request, 'courses/course_list.html', context=context)

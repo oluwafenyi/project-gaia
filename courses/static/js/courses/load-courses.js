@@ -1,11 +1,18 @@
 
 const createElement = (elDatum, parent) => {
     const el = document.createElement(elDatum.type);
-    if (elDatum.classList) el.classList.add(...elDatum.classList);
-    if (elDatum.customAttributes) elDatum.customAttributes.forEach((attr) => {
-        el.setAttribute(attr[0], attr[1]);
-    });
-    if (elDatum.textContent) el.textContent = elDatum.textContent;
+    if (elDatum.classList) {
+        el.className = elDatum.classList.join(' ');
+    }
+    if (elDatum.customAttributes) {
+        elDatum.customAttributes.forEach((attr) => {
+            const [key, value] = attr;
+            el.setAttribute(key, value);
+        });
+    }
+    if (elDatum.textContent) {
+        el.textContent = elDatum.textContent;
+    }
     if (elDatum.children) {
         elDatum.children.forEach((child) => {
             createElement(child, el);
@@ -79,11 +86,14 @@ const appendCourse = (course) => {
 };
 
 const loadMore = (pageNumber) => {
-    const categoryAPI = document.getElementById('catAPI').getAttribute('api');
-    return fetch(`${categoryAPI}?page=${pageNumber}`)
+    const category = document.getElementById('courseList').getAttribute('category').toLowerCase();
+    const url = `/api/courses/${category}/?page=${pageNumber}`;
+    return fetch(url)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            if (!response.next) {
+                button.parentNode.removeChild(button);
+            }
             response.data.forEach(object => {
                 appendCourse(object);
             });
@@ -95,7 +105,7 @@ const button = document.getElementById('loadMore');
 let nextPage = 2;
 
 if (button) {
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', () => {
         loadMore(nextPage);
         nextPage++;
     });

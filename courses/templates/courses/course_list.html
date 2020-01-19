@@ -23,7 +23,7 @@ need to center message for empty course list
 <!-- ##### Popular Course Area Start ##### -->
 <section class="popular-courses-area section-padding-100">
     <div class="container">
-        <div class="row" id="courseList">
+        <div class="row" id="courseList" category="{{ category }}">
 
             {% for course in courses %}
 
@@ -87,9 +87,6 @@ need to center message for empty course list
 
 {% block scripts %}
 
-    <script id="catAPI" api="{{ category_api }}"></script>
-
-    <script src="{% static 'js/courses/load-courses.js' %}"></script>
 
 {% endblock scripts %}
 
