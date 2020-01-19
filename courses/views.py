@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator
 from django.views import View
 from django.http import JsonResponse
 
