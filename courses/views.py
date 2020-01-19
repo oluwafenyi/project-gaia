@@ -15,13 +15,14 @@ CATEGORIES = {
 }
 
 
-class GeologyCoursesListView(ExtendedView):
+class CoursesListView(ExtendedView):
     paginate_by = 9
+    category = None
 
     def get(self, request):
-        category = CATEGORIES[Course.GEOLOGY]
+        category = CATEGORIES[self.category]
         courses = Course.objects\
-            .filter(category=Course.GEOLOGY).order_by('code')
+            .filter(category=self.category).order_by('code')
         paginator = Paginator(courses, self.paginate_by)
         first_page = paginator.page(1)
         context = {
@@ -31,3 +32,15 @@ class GeologyCoursesListView(ExtendedView):
         }
         context.update(self.contact_context)
         return render(request, 'courses/course_list.html', context=context)
+
+
+class GeologyCoursesListView(CoursesListView):
+    category = Course.GEOLOGY
+
+
+class GeophysicsCoursesListView(CoursesListView):
+    category = Course.GEOPHYSICS
+
+
+class OthersCoursesListView(CoursesListView):
+    category = Course.OTHERS

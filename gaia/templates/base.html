@@ -77,12 +77,12 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
                                     <li><a href="#">Courses</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'geology_course_list' %}">Geology</a></li>
-                                            <li><a href="geophysics.html">Geophysics</a></li>
-                                            <li><a href="others.html">Others</a></li>
+                                            <li><a href="{% url 'geophysics_course_list' %}">Geophysics</a></li>
+                                            <li><a href="{% url 'others_course_list' %}">Others</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="instructors.html">Lecturers &amp; Excos</a></li>
@@ -128,7 +128,7 @@
                         <div class="col-12">
                             <!-- Footer Logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
                             </div>
                             <!-- Copywrite -->
                             <p>

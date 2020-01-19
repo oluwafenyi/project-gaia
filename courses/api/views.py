@@ -6,15 +6,16 @@ from ..models import Course
 from ..views import CATEGORIES
 
 
-class GeologyCoursesListAPIView(View):
+class CoursesListAPIView(View):
     paginate_by = 9
+    category = None
 
     def get(self, request):
         page = request.GET.get('page')
         if not page:
             page = 1
         courses = Course.objects\
-            .filter(category=Course.GEOLOGY).order_by('code')
+            .filter(category=self.category).order_by('code')
         paginator = Paginator(courses, self.paginate_by)
         try:
             section = paginator.page(page)
@@ -47,3 +48,15 @@ class GeologyCoursesListAPIView(View):
                 'status': 200
             }
             return JsonResponse(data)
+
+
+class GeologyCoursesListAPIView(CoursesListAPIView):
+    category = Course.GEOLOGY
+
+
+class GeophysicsCoursesListAPIView(CoursesListAPIView):
+    category = Course.GEOPHYSICS
+
+
+class OthersCoursesListAPIView(CoursesListAPIView):
+    category = Course.OTHERS
