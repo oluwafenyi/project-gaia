@@ -72,7 +72,7 @@ const appendCourse = (course) => {
                     },
                     {
                         type: 'p',
-                        textContent: course.description.slice(0, 50)
+                        textContent: course.description
                     },
                 ]
             }, ]
