@@ -42,20 +42,13 @@ def add_course_data(apps, schema_editor):
                         except IndexError:
                             first_name = ''
 
-                        try:
-                            new_lecturer = Lecturer.objects.filter(
-                                title=lect_title,
-                                last_name=last_name,
-                                first_name=first_name,
-                            )[0]
+                        new_lecturer, _ = Lecturer.objects.get_or_create(
+                            title=lect_title,
+                            last_name=last_name,
+                            first_name=first_name,
+                        )
 
-                        except IndexError:
-                            new_lecturer = Lecturer.objects.create(
-                                title=lect_title,
-                                last_name=last_name,
-                                first_name=first_name,
-                            )
-                            new_lecturers.append(new_lecturer)
+                        new_lecturers.append(new_lecturer)
 
                 new_course = Course.objects.create(
                     code=code,
