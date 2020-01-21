@@ -2859,5 +2859,9 @@ textarea:focus {
     color: #ffffff;
 }
 
+.single-popular-course:hover {
+    transform: scale(1.1);
+}
+
 
 /*# sourceMappingURL=style.css.map */
