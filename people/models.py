@@ -24,6 +24,14 @@ class Person(models.Model):
 
 class Executive(Person):
     position = models.CharField(max_length=200)
+    whatsapp = models.CharField(max_length=11, blank=True)
+    twitter = models.CharField(max_length=15, blank=True)
+    instagram = models.CharField(max_length=30, blank=True)
+
+    def whatsapp_link(self):
+        if self.whatsapp:
+            return 'https://wa.me/234{}'.format(self.whatsapp[1:])
+        return None
 
 
 class Lecturer(Person):

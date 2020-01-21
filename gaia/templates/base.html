@@ -87,7 +87,7 @@
                                     </li>
                                     <li><a href="{% url 'excos_lecturers_list' %}">Lecturers &amp; Excos</a></li>
                                     <li><a href="">Blog</a></li>
-                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                 </ul>
 
                                 <!-- Search Button -->
@@ -146,20 +146,20 @@
             </div>
 
             <!-- Bottom Footer Area -->
-            <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            {% comment %} <div class="bottom-footer-area d-flex justify-content-between align-items-center">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <a href="#"><span>Phone:</span> +234 810 866 7883</a>
-                    <a href="#"><span>Email:</span> info@geoscience.com</a>
+                    <a href="tel:{{ tel }}"><span>Phone:</span>{{ tel | phone_number }}</a>
+                    <a href="mailto:{{ email }}"><span>Email:</span> {{ email }}</a>
                 </div>
                 <!-- Follow Us -->
                 <div class="follow-us">
                     <span>Follow us</span>
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="{{ facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="{{ instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="{{ twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </footer>
         <!-- ##### Footer Area End ##### -->
 
@@ -178,7 +178,6 @@
         <!-- Active js -->
         <script src="{% static 'js/active.js' %}"></script>
 
-        <script src="{% static 'js/courses/load-courses.js' %}"></script>
 
         {% block scripts %}
 

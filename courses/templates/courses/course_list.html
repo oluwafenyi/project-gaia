@@ -44,19 +44,13 @@ need to center message for empty course list
                         <p>{{ course.description }}</p>
                     </div>
                     <!-- Seat Rating Fee -->
-                    {% comment %} <div class="seat-rating-fee d-flex justify-content-between">
+                    <div class="seat-rating-fee d-flex justify-content-between">
                         <div class="seat-rating h-100 d-flex align-items-center">
-                            <div class="seat">
-                                <i class="fa fa-user" aria-hidden="true"></i> 90
-                            </div>
                             <div class="rating">
-                                <i class="fa fa-star" aria-hidden="true"></i> {{ course.units }} units
+                                {{ course.units }} Units <i class="fa fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="course-fee h-100">
-                            <a href="#" class="free">Free</a>
-                        </div>
-                    </div> {% endcomment %}
+                    </div>
                 </div>
             </div>
 
@@ -84,10 +78,8 @@ need to center message for empty course list
 </section>
 <!-- ##### Popular Course Area End ##### -->
 
+{% endblock body %}
 
 {% block scripts %}
-
-
+    <script src="{% static 'js/courses/load-courses.js' %}"></script>
 {% endblock scripts %}
-
-{% endblock body %}

@@ -10,10 +10,26 @@
 
 {% block body %}
 
-    <!-- ##### Google Maps ##### -->
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/unilag_lagoon_front.jpg' %}); z-index: 0;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    {% comment %} <div class="hero-content text-center">
+                        <h2>Let's Study Together</h2>
+                        <a href="#" class="btn clever-btn">Get Started</a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    {% comment %} <!-- ##### Google Maps ##### -->
     <div class="map-area">
         <div id="googleMap"></div>
-    </div>
+    </div> {% endcomment %}
 
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area">
@@ -80,8 +96,8 @@
 
     {% block scripts %}
         <!-- Google Maps -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
-        <script src="{% static 'js/google-map/map-active.js' %}"></script>
+        {% comment %} <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
+        <script src="{% static 'js/google-map/map-active.js' %}"></script> {% endcomment %}
     {% endblock scripts %}
 
 {% endblock body %}

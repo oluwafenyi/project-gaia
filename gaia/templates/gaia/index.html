@@ -11,14 +11,18 @@
 {% block body %}
 
         <!-- ##### Hero Area Start ##### -->
-    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/people.jpg' %});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Hero Content -->
                     <div class="hero-content text-center">
-                        <h2>Let's Study Together</h2>
-                        <a href="#" class="btn clever-btn">Get Started</a>
+                        <h2>WE ARE GEOSCIENTISTS</h2>
+                    </div>
+                    <div class="meta d-flex align-items-center justify-content-center">
+                        <a style="color: white; margin-right:20px;">Geology</a>
+                        <span style="color: white;"><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        <a style="color: white; margin-left: 20px;">Geophysics</a>
                     </div>
                 </div>
             </div>
@@ -36,8 +40,8 @@
                         <div class="icon">
                             <img src="{% static 'img/core-img/docs.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">1912</span></h2>
-                        <h5>Success Stories</h5>
+                        <h2><span class="counter">{{ blog_posts_count | default_if_none:"0" }}</span></h2>
+                        <h5>Blog Posts</h5>
                     </div>
                 </div>
 
@@ -47,8 +51,8 @@
                         <div class="icon">
                             <img src="{% static 'img/core-img/star.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">123</span></h2>
-                        <h5>Dedicated Tutors</h5>
+                        <h2><span class="counter">{{ exco_count }}</span></h2>
+                        <h5>Dedicated Exco{{ exco_count | pluralize:",s" }}</h5>
                     </div>
                 </div>
 
@@ -58,7 +62,7 @@
                         <div class="icon">
                             <img src="{% static 'img/core-img/events.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">89</span></h2>
+                        <h2><span class="counter">{{ upcoming_events_count | default_if_none:"0" }}</span></h2>
                         <h5>Scheduled Events</h5>
                     </div>
                 </div>
@@ -69,8 +73,8 @@
                         <div class="icon">
                             <img src="{% static 'img/core-img/earth.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">56</span></h2>
-                        <h5>Available Courses</h5>
+                        <h2><span class="counter">{{ course_count }}</span></h2>
+                        <h5>Course{{ course_count | pluralize:",s" }}</h5>
                     </div>
                 </div>
             </div>
@@ -187,122 +191,6 @@
     </section>
     <!-- ##### Popular Courses End ##### -->
 
-    <!-- ##### Best Tutors Start ##### -->
-    <section class="best-tutors-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h3>The Best Tutors in Town</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="tutors-slide owl-carousel wow fadeInUp" data-wow-delay="250ms">
-
-                        <!-- Single Tutors Slide -->
-                        <div class="single-tutors-slides">
-                            <!-- Tutor Thumbnail -->
-                            <div class="tutor-thumbnail">
-                                <img src="{% static 'img/bg-img/t1.jpg' %}" alt="">
-                            </div>
-                            <!-- Tutor Information -->
-                            <div class="tutor-information text-center">
-                                <h5>Alex Parker</h5>
-                                <span>Teacher</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
-                                <div class="social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Tutors Slide -->
-                        <div class="single-tutors-slides">
-                            <!-- Tutor Thumbnail -->
-                            <div class="tutor-thumbnail">
-                                <img src="{% static 'img/bg-img/t2.jpg' %}" alt="">
-                            </div>
-                            <!-- Tutor Information -->
-                            <div class="tutor-information text-center">
-                                <h5>Alex Parker</h5>
-                                <span>Teacher</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
-                                <div class="social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Tutors Slide -->
-                        <div class="single-tutors-slides">
-                            <!-- Tutor Thumbnail -->
-                            <div class="tutor-thumbnail">
-                                <img src="{% static 'img/bg-img/t3.jpg' %}" alt="">
-                            </div>
-                            <!-- Tutor Information -->
-                            <div class="tutor-information text-center">
-                                <h5>Alex Parker</h5>
-                                <span>Teacher</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
-                                <div class="social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Tutors Slide -->
-                        <div class="single-tutors-slides">
-                            <!-- Tutor Thumbnail -->
-                            <div class="tutor-thumbnail">
-                                <img src="{% static 'img/bg-img/t4.jpg' %}" alt="">
-                            </div>
-                            <!-- Tutor Information -->
-                            <div class="tutor-information text-center">
-                                <h5>Alex Parker</h5>
-                                <span>Teacher</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
-                                <div class="social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Tutors Slide -->
-                        <div class="single-tutors-slides">
-                            <!-- Tutor Thumbnail -->
-                            <div class="tutor-thumbnail">
-                                <img src="{% static 'img/bg-img/t5.jpg' %}" alt="">
-                            </div>
-                            <!-- Tutor Information -->
-                            <div class="tutor-information text-center">
-                                <h5>Alex Parker</h5>
-                                <span>Teacher</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
-                                <div class="social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Best Tutors End ##### -->
-
     <!-- ##### Register Now Start ##### -->
     <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center" style="background-image: url({% static 'img/core-img/texture.png' %});">
         <!-- Register Contact Form -->
@@ -310,36 +198,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="forms">
-                            <h4>Courses For Free</h4>
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="text" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="phone" placeholder="Phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="site" placeholder="Site">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn clever-btn w-100">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            <h4 class="text-center">About Us</h4>
+                            <p>This Platform is created for Geoscience Students to get easy access to lecture files, tutorial videos and Past questions relating to each course, and get Updates about upcoming events. Know more about your excos and connect well
+                            with them. I hope we all gain from this platform.
+                            </p>
+                        <h5 class="text-center">Our Mission and Vision</h5>
+                        <p>Creating a better connection for future UNILAG Geoscience Students in Nigeria and Diaspora. One Geoscience, One Family.</p>
                     </div>
                 </div>
             </div>
@@ -347,7 +211,7 @@
 
         <!-- Register Now Countdown -->
         <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
-            <h3>Register Now</h3>
+            <h3>Come for Our Next Event!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae. Donec bibendum tortor sed mi faucibus vehicula. Sed erat lorem</p>
             <!-- Register Countdown -->
             <div class="register-countdown">

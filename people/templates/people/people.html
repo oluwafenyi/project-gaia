@@ -37,11 +37,19 @@
                             <div class="tutor-information text-center">
                                 <h5>{{ exco.full_name }}</h5>
                                 <span>{{ exco.position }}</span>
-                                <div class="social-info">
-                                    <a href="whatsapp.com/08108667883"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                                    <a href="instagram.com/tobesh_01"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div>
+                                {% if exco.whatsapp_link or exco.instagram or exco.twitter %}
+                                    <div class="social-info">
+                                        {% if exco.whatsapp_link %}
+                                            <a href="{{ exco.whatsapp_link }}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                        {% endif %}
+                                        {% if exco.instagram %}
+                                            <a href="https://instagram.com/{{ exco.instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                        {% endif %}
+                                        {% if exco.twitter %}
+                                            <a href="https://twitter.com/{{ exco.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                         {% endfor %}

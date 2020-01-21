@@ -1,8 +1,8 @@
 
 const createElement = (elDatum, parent) => {
     const el = document.createElement(elDatum.type);
-    if (elDatum.classList) {
-        el.className = elDatum.classList.join(' ');
+    if (elDatum.className) {
+        el.className = elDatum.className;
     }
     if (elDatum.customAttributes) {
         elDatum.customAttributes.forEach((attr) => {
@@ -27,23 +27,23 @@ const appendCourse = (course) => {
 
     const elData = [{
         type: 'div',
-        classList: 'col-12 col-md-6 col-lg-4'.split(' '),
+        className: 'col-12 col-md-6 col-lg-4',
         children: [{
             type: 'div',
-            classList: 'single-popular-course mb-100 wow fadeInUp'.split(' '),
+            className: 'single-popular-course mb-100 wow fadeInUp',
             customAttributes: [
                 ['data-wow-delay', '250ms']
             ],
             children: [{
                 type: 'div',
-                classList: ['course-content'],
+                className: 'course-content',
                 children: [{
                         type: 'h5',
                         textContent: `${course.code}: ${course.title}`,
                     },
                     {
                         type: 'div',
-                        classList: 'meta d-flex align-items-center'.split(' '),
+                        className: 'meta d-flex align-items-center',
                         children: [
                             ...course.lecturers.map((lecturer) => {
                                 return {
@@ -55,7 +55,7 @@ const appendCourse = (course) => {
                                 type: 'span',
                                 children: [{
                                     type: 'i',
-                                    classList: 'fa fa-circle'.split(' '),
+                                    className: 'fa fa-circle',
                                     customAttributes: [
                                         ['aria-hidden', 'true']
                                     ]
@@ -75,6 +75,32 @@ const appendCourse = (course) => {
                         textContent: course.description
                     },
                 ]
+            },
+            {
+                type: 'div',
+                className: 'seat-rating-fee d-flex justify-content-between',
+                children: [
+                    {
+                        type: 'div',
+                        className: 'seat-rating h-100 d-flex align-items-center',
+                        children: [
+                            {
+                                type: 'div',
+                                className: 'rating',
+                                children: [
+                                    {
+                                        type: 'i',
+                                        className: 'fa fa-star',
+                                        customAttributes: [
+                                            ['aria-hidden', 'true'],
+                                        ],
+                                    }
+                                ],
+                                textContent: `${course.units} Units `,
+                            },
+                        ],
+                    },
+                ],
             }, ]
         }, ]
     }, ];
