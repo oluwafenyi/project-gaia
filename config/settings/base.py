@@ -7,6 +7,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(
 
 SECRET_KEY = os.getenv('PROJECT_GAIA')
 
+DEBUG = True
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
