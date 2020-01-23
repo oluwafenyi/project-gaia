@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ block.super }} {{ category }} Courses
+{% endblock title %}
+
+{% block body %}
+
+{% comment %}
+need a better tag rep for lecturer names
+need to center message for empty course list
+{% endcomment %}
+
+
+<!-- ##### Category ##### -->
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+    style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">
+    <h3>{{ category | upper }}</h3>
+</div>
+
+<!-- ##### Popular Course Area Start ##### -->
+<section class="popular-courses-area section-padding-100">
+    <div class="container">
+        <div class="row" id="courseList" category="{{ category }}">
+
+            {% for course in courses %}
+
+            <!-- Single Popular Course -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
+                    <!--<img src="img/bg-img/c1.jpg" alt="">
+                        <!-- Course Content -->
+                    <div class="course-content">
+                        <h5>{{ course.code }}: {{ course.title }}</h5>
+                        <div class="meta d-flex align-items-center">
+                            {% for lecturer in course.lecturers.all %}
+                            <a>{{ lecturer.full_name }}</a>
+                            {% endfor %}
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <a href="#">{{ category }}</a>
+                        </div>
+                        <p>{{ course.description }}</p>
+                    </div>
+                    <!-- Seat Rating Fee -->
+                    <div class="seat-rating-fee d-flex justify-content-between">
+                        <div class="seat-rating h-100 d-flex align-items-center">
+                            <div class="rating">
+                                {{ course.units }} Units <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% empty %}
+
+            <h5>Oops, there are no courses listed here.</h5>
+
+            {% endfor %}
+
+        </div>
+
+        {% if next %}
+
+        <div class="row">
+            <div class="col-12">
+                <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
+                    <button id="loadMore" class="btn clever-btn btn-2">Load More</button>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+<!-- ##### Popular Course Area End ##### -->
+
+{% endblock body %}
+
+{% block scripts %}
+    <script src="{% static 'js/courses/load-courses.js' %}"></script>
+{% endblock scripts %}
