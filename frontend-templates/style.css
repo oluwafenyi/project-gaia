@@ -46,6 +46,10 @@ p {
     font-weight: 400;
 }
 
+#logo {
+    margin: 0;
+}
+
 a,
 a:hover,
 a:focus {
