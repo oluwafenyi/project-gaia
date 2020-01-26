@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load gaia_extras %}
 
 
 <!DOCTYPE html>
@@ -161,93 +162,61 @@
         <!-- Register Now Countdown -->
         <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
             <h3>Come for Our Next Event!</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae. Donec bibendum tortor sed mi faucibus vehicula. Sed erat lorem</p>
+            <p>Meet up with us at our next event: {{ next_event.title }} on {{ next_event.start_date | date:"l, jS F Y" }} at {{ next_event.start_date | date:"g:iA" }}. Tickets are {% if next_event.ticket_price %}{{ events.ticket_price | currency:"₦" }} {% else %}{{ "free" }}{% endif %}. Hope to see you there!</p>
             <!-- Register Countdown -->
             <div class="register-countdown">
-                <div class="events-cd d-flex flex-wrap" data-countdown="2019/03/01"></div>
+                <div class="events-cd d-flex flex-wrap" data-countdown="{{ next_event.start_date | date:"Y/m/d" }}"></div>
             </div>
         </div>
     </section>
     <!-- ##### Register Now End ##### -->
 
-    <!-- ##### Upcoming Events Start ##### -->
-    <section class="upcoming-events section-padding-100-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h3>Upcoming events</h3>
+    {% if upcoming_events %}
+        <!-- ##### Upcoming Events Start ##### -->
+        <section class="upcoming-events section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading">
+                            <h3>Upcoming events</h3>
+                        </div>
                     </div>
+                </div>
+
+                <div class="row">
+
+                    {% for event in upcoming_events %}
+                        <!-- Single Upcoming Events -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
+                                <!-- Events Thumb -->
+                                <div class="events-thumb">
+                                    <img src="{% static 'img/bg-img/e1.jpg' %}" alt="">
+                                    <h6 class="event-date">{{ event.start_date | date:"F j" }}</h6>
+                                    <h4 class="event-title">{{ event.title }}</h4>
+                                </div>
+                                <!-- Date & Fee -->
+                                <div class="date-fee d-flex justify-content-between">
+                                    <div class="date">
+                                        <p><i class="fa fa-clock"></i> {{ event.start_date | date:"F j" }} @ {{ event.start_date | date:"g:ia" }}</p>
+                                    </div>
+                                    <div class="events-fee">
+                                        {% if event.ticket_price %}
+                                            <a>{{ event.ticket_price | currency:"₦" }}</a>
+                                        {% else %}
+                                            <a class="free">Free</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
+        </section>
+        <!-- ##### Upcoming Events End ##### -->
+    {% endif %}
 
-            <div class="row">
-                <!-- Single Upcoming Events -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
-                        <!-- Events Thumb -->
-                        <div class="events-thumb">
-                            <img src="{% static 'img/bg-img/e1.jpg' %}" alt="">
-                            <h6 class="event-date">August 26</h6>
-                            <h4 class="event-title">Networking Day</h4>
-                        </div>
-                        <!-- Date & Fee -->
-                        <div class="date-fee d-flex justify-content-between">
-                            <div class="date">
-                                <p><i class="fa fa-clock"></i> August 26 @ 9:00 am</p>
-                            </div>
-                            <div class="events-fee">
-                                <a href="#">$45</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Upcoming Events -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Events Thumb -->
-                        <div class="events-thumb">
-                            <img src="{% static 'img/bg-img/e2.jpg' %}" alt="">
-                            <h6 class="event-date">August 7</h6>
-                            <h4 class="event-title">Open Doors Day</h4>
-                        </div>
-                        <!-- Date & Fee -->
-                        <div class="date-fee d-flex justify-content-between">
-                            <div class="date">
-                                <p><i class="fa fa-clock"></i> August 7 @ 9:00 am</p>
-                            </div>
-                            <div class="events-fee">
-                                <a href="#" class="free">Free</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Upcoming Events -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="750ms">
-                        <!-- Events Thumb -->
-                        <div class="events-thumb">
-                            <img src="{% static 'img/bg-img/e3.jpg' %}" alt="">
-                            <h6 class="event-date">August 3</h6>
-                            <h4 class="event-title">Creative Leadership</h4>
-                        </div>
-                        <!-- Date & Fee -->
-                        <div class="date-fee d-flex justify-content-between">
-                            <div class="date">
-                                <p><i class="fa fa-clock"></i> August 3 @ 9:00 am</p>
-                            </div>
-                            <div class="events-fee">
-                                <a href="#">$45</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Upcoming Events End ##### -->
 
     <!-- ##### Blog Area Start ##### -->
     <section class="blog-area section-padding-100-0">

@@ -16,3 +16,8 @@ def phone_number(value: str):
         copy_val[:3], copy_val[3:6], copy_val[6:9], copy_val[9:]
     )
     return formatted
+
+
+@register.filter(name='currency')
+def currency(value: float, symbol: str):
+    return '{} {:.2f}'.format(symbol, value)

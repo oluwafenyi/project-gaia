@@ -2,9 +2,11 @@
 from django.conf import settings
 from django.views import View
 from django.shortcuts import render
+from django.utils import timezone
 
 from courses.models import Course
 from people.models import Executive
+from events.models import Event
 
 
 class ExtendedView(View):
@@ -16,7 +18,19 @@ class HomePageView(ExtendedView):
     def get(self, request):
         course_count = Course.objects.all().count()
         exco_count = Executive.objects.all().count()
-        context = {'course_count': course_count, 'exco_count': exco_count}
+        events = Event.objects.filter(end_date__gte=timezone.now())\
+            .order_by('start_date')[:3]
+        try:
+            next_event = events[0]
+        except IndexError:
+            next_event = None
+
+        context = {
+            'course_count': course_count,
+            'exco_count': exco_count,
+            'upcoming_events': events,
+            'next_event': next_event,
+        }
         context.update(self.contact_context)
         return render(request, 'gaia/index.html', context=context)
 
