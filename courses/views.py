@@ -37,3 +37,12 @@ class GeophysicsCoursesListView(CoursesListView):
 
 class OthersCoursesListView(CoursesListView):
     category = Course.OTHERS
+
+
+class CourseDetailView(ExtendedView):
+
+    def get(self, request, category, code):
+        course = Course.objects.get(code__iexact=code)
+        context = {'course': course}
+        context.update(self.contact_context)
+        return render(request, 'courses/course_detail.html', context)

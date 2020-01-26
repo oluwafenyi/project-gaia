@@ -169,6 +169,10 @@ img {
 
 
 /* Section Padding */
+.section-padding-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 
 .section-padding-100 {
     padding-top: 100px;
@@ -849,6 +853,7 @@ textarea:focus {
     position: relative;
     z-index: 1;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid white;
     border-radius: 6px;
     background-color: #ffffff;
 }
@@ -2865,7 +2870,13 @@ textarea:focus {
 }
 
 .single-popular-course:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
+    /* position: relative; */
+    border: solid 1px goldenrod;
+    /* z-index: 1; */
+    /* box-shadow: 0 3px 8px rgba(218, 165, 32, 0.5); */
+    /* border-radius: 6px; */
+    /* background-color: #ffffff; */
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.urls import reverse
 
 from people.models import Lecturer
 
@@ -25,3 +26,9 @@ class Course(models.Model):
 
     def __str__(self):
         return self.code
+
+    def get_absolute_url(self):
+        return reverse('course_detail', kwargs={
+            'code': self.code.lower(),
+            'category': dict(self.CATEGORIES)[self.category].lower(),
+        })

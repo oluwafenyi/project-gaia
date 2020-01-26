@@ -5,10 +5,16 @@ from .views import (
     GeologyCoursesListView,
     GeophysicsCoursesListView,
     OthersCoursesListView,
+    CourseDetailView,
 )
 
 
 urlpatterns = [
+    path(
+        '<str:category>/<str:code>/',
+        CourseDetailView.as_view(),
+        name='course_detail',
+    ),
     path(
         'geology/',
         GeologyCoursesListView.as_view(),
