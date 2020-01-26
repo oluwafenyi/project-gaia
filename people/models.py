@@ -27,10 +27,16 @@ class Executive(Person):
     whatsapp = models.CharField(max_length=11, blank=True)
     twitter = models.CharField(max_length=15, blank=True)
     instagram = models.CharField(max_length=30, blank=True)
+    snapchat = models.CharField(max_length=15, blank=True)
 
     def whatsapp_link(self):
         if self.whatsapp:
             return 'https://wa.me/234{}'.format(self.whatsapp[1:])
+        return None
+
+    def snapchat_link(self):
+        if self.snapchat:
+            return 'https://snapchat.com/add/{}'.format(self.snapchat)
         return None
 
 
