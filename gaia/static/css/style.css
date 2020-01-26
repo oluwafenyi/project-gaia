@@ -861,6 +861,7 @@ textarea:focus {
 
 .single-popular-course .course-content {
     padding: 25px;
+    height: 221px;
 }
 
 .single-popular-course .course-content h4 {
