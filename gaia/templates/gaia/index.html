@@ -191,7 +191,7 @@
                             <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
                                 <!-- Events Thumb -->
                                 <div class="events-thumb">
-                                    <img src="{% static 'img/bg-img/e1.jpg' %}" alt="">
+                                    <img src="{% static 'img/bg-img/e1.jpg' %}" alt="{{ event.title }}">
                                     <h6 class="event-date">{{ event.start_date | date:"F j" }}</h6>
                                     <h4 class="event-title">{{ event.title }}</h4>
                                 </div>

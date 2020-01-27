@@ -1997,7 +1997,7 @@ textarea:focus {
     width: 110px;
     padding: 15px 0;
     text-align: center;
-    border: 1px solid #ffffff;
+    border: 1px solid goldenrod;
     border-radius: 6px;
     margin-right: 12px;
     font-size: 36px;
@@ -2007,7 +2007,7 @@ textarea:focus {
 
 .register-now .register-now-countdown .events-cd div span {
     margin-top: 0;
-    color: rgba(255, 255, 255, 0.7);
+    color: goldenrod;
     font-size: 18px;
     font-weight: 700;
     display: block;
@@ -2121,7 +2121,7 @@ textarea:focus {
 
 .single-tutors-slides .tutor-information .social-info a:hover,
 .single-tutors-slides .tutor-information .social-info a:focus {
-    color: #2c56df;
+    color: goldenrod;
 }
 
 .center .single-tutors-slides .tutor-information {
@@ -2147,7 +2147,7 @@ textarea:focus {
 
 .tutors-slide .owl-prev:hover,
 .tutors-slide .owl-next:hover {
-    background-color: #2c56df;
+    background-color: goldenrod;
     color: #ffffff;
 }
 
