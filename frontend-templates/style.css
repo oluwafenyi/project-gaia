@@ -50,6 +50,10 @@ p {
     margin: 0;
 }
 
+#logo img {
+    width: 200px;
+}
+
 a,
 a:hover,
 a:focus {
@@ -467,7 +471,7 @@ textarea:focus {
     font-size: 14px;
     font-weight: 600;
     color: #ffffff;
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(252, 221, 137);
 }
 
 .clever-btn.btn-2 {
