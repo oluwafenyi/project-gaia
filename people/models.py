@@ -6,7 +6,7 @@ class Person(models.Model):
     title = models.CharField(max_length=5, default='', blank=True)
     first_name = models.CharField(max_length=50, blank=True)
     last_name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/', blank=True)
+    image = models.ImageField(upload_to='images/people/', blank=True)
 
     def __str__(self):
         return self.full_name()

@@ -2,12 +2,15 @@
 import csv
 import os
 
+from django.core.files import File
 from django.db import migrations
 
 
 EXCO_DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__)
 )), 'exco_data')
+
+EXCO_IMAGE_PATH = os.path.join(EXCO_DATA_PATH, 'exco_images')
 
 
 def add_exco_data(apps, schema_editor):
@@ -20,15 +23,18 @@ def add_exco_data(apps, schema_editor):
 
             name_list = name.split(' ')
             firstname, lastname = ' '.join(name_list[:-1]), name_list[-1]
-            Executive.objects.create(
+            exco = Executive.objects.create(
                 first_name=firstname,
                 last_name=lastname,
                 position=position,
                 twitter=twitter,
                 instagram=ig,
                 snapchat=sc,
-                image=image,
             )
+            if image:
+                exco.image.save(image, File(open(os.path.join(
+                    EXCO_IMAGE_PATH, image
+                ), 'rb')))
 
 
 def remove_exco_data(apps, schema_editor):
@@ -48,7 +54,6 @@ def remove_exco_data(apps, schema_editor):
                 twitter=twitter,
                 instagram=ig,
                 snapchat=sc,
-                image=image,
             ).delete()
 
 

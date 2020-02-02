@@ -31,7 +31,7 @@ need to center message for empty course list
                 <div class="col-12 col-md-6 col-lg-4" onclick="window.location.href='{{ course.get_absolute_url }}'" style="cursor: pointer;">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <!-- Course Content -->
-                        <div class="course-content">
+                        <div class="course-content fixed-course-height">
                             <h5>{{ course.code }}: {{ course.title }}</h5>
                             <div class="meta d-flex align-items-center">
                                 {% for lecturer in course.lecturers.all %}

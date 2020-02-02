@@ -470,21 +470,26 @@ textarea:focus {
 .clever-btn:focus {
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff;
-    background-color: lightgoldenrodyellow;
+    color: goldenrod;
+    background-color: white;
+    border-color: goldenrod;
 }
 
 .clever-btn.btn-2 {
-    background-color: transparent;
-    border: 1px solid #ebebeb;
-    color: rgba(0, 0, 0, 0.25);
+    background-color: goldenrod;
+    border: 1px solid transparent;
+    color: white;
 }
 
-.clever-btn.btn-2:hover,
-.clever-btn.btn-2:focus {
-    color: #ffffff;
-    background-color: goldenrod;
+.clever-btn.btn-2:hover {
+    color: goldenrod;
+    background-color: white;
     border: 1px solid goldenrod;
+}
+
+.clever-btn.btn-2:focus {
+    outline-color: lightgoldenrodyellow;
+    box-shadow: 0 0 0 0.2rem #e3d21b;
 }
 
 
@@ -866,6 +871,9 @@ textarea:focus {
 
 .single-popular-course .course-content {
     padding: 25px;
+}
+
+.fixed-course-height {
     height: 221px;
 }
 
@@ -1914,7 +1922,7 @@ textarea:focus {
 }
 
 .register-now::after {
-    background-color: #f0f0b4;
+    background-color: lightgoldenrodyellow;
     top: 0;
     left: 0;
     position: absolute;

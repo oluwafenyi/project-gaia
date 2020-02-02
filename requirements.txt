@@ -1,2 +1,5 @@
 Django==3.0.2
 Pillow==7.0.0
+django-stoages==1.8
+boto3==1.11.9
+django-extensions==2.2.6

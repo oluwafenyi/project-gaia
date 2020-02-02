@@ -28,7 +28,7 @@
                             <!-- Tutor Thumbnail -->
                             <div class="tutor-thumbnail">
                                 {% if exco.image %}
-                                <img src="{{ exco.image }}" alt="{{ exco.full_name }}">
+                                <img src="{{ exco.image.url }}" alt="{{ exco.full_name }}">
                                 {% else %}
                                 <img src="{% static 'img/exc/blank_person.png' %}" alt="default">
                                 {% endif %}
