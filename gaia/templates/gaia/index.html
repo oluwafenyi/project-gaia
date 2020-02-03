@@ -159,15 +159,24 @@
             </div>
         </div>
 
-        <!-- Register Now Countdown -->
-        <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
-            <h3>Come for Our Next Event!</h3>
-            <p>Meet up with us at our next event: {{ next_event.title }} on {{ next_event.start_date | date:"l, jS F Y" }} at {{ next_event.start_date | date:"g:iA" }}. Tickets are {% if next_event.ticket_price %}{{ events.ticket_price | currency:"₦" }} {% else %}{{ "free" }}{% endif %}. Hope to see you there!</p>
-            <!-- Register Countdown -->
-            <div class="register-countdown">
-                <div class="events-cd d-flex flex-wrap" data-countdown="{{ next_event.start_date | date:"Y/m/d" }}"></div>
+
+        {% if next_event %}
+            <!-- Register Now Countdown -->
+            <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+                <h3>Come for Our Next Event!</h3>
+                <p>Meet up with us at our next event: {{ next_event.title }} on {{ next_event.start_date | date:"l, jS F Y" }} at {{ next_event.start_date | date:"g:iA" }}. Tickets are {% if next_event.ticket_price %}{{ events.ticket_price | currency:"₦" }} {% else %}{{ "free" }}{% endif %}. Hope to see you there!</p>
+                <!-- Register Countdown -->
+                <div class="register-countdown">
+                    <div class="events-cd d-flex flex-wrap" data-countdown="{{ next_event.start_date | date:"Y/m/d" }}"></div>
+                </div>
             </div>
-        </div>
+
+        {% else %}
+            <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+                <h4>Check back for our upcoming events!</h4>
+            </div>
+        {% endif %}
+
     </section>
     <!-- ##### Register Now End ##### -->
 
@@ -222,7 +231,7 @@
     {% endif %}
 
 
-    <!-- ##### Blog Area Start ##### -->
+    {% comment %} <!-- ##### Blog Area Start ##### -->
     <section class="blog-area section-padding-100-0">
         <div class="container">
             <div class="row">
@@ -274,6 +283,6 @@
             </div>
         </div>
     </section>
-    <!-- ##### Blog Area End ##### -->
+    <!-- ##### Blog Area End ##### --> {% endcomment %}
 
 {% endblock body %}
