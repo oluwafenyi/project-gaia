@@ -2198,7 +2198,7 @@ textarea:focus {
 
 .single-blog-area .blog-content .blog-headline h4:hover,
 .single-blog-area .blog-content .blog-headline h4:focus {
-    color: #2c56df;
+    color: goldenrod;
 }
 
 .single-blog-area .blog-content .meta {
