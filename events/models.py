@@ -4,7 +4,7 @@ from django.db import models
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='images/events/', blank=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField(null=True, blank=True)
     ticket_price = models.FloatField(null=True, default=0.0)
