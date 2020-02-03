@@ -27,13 +27,13 @@ def add_course_data(apps, schema_editor):
             for row in csv_reader:
                 code, title, desc, unit, lecturers = row
 
+                new_lecturers = []
                 if lecturers:
                     lecturers = lecturers.split(' & ')
                     lecturers = \
                         [lecturer.split('. ') for lecturer in lecturers]
                     lecturers = [[n[0], *n[1].split(' ')] for n in lecturers]
 
-                    new_lecturers = []
                     for lecturer in lecturers:
                         lect_title = lecturer[0]
                         last_name = lecturer[1]
