@@ -5,10 +5,10 @@ from django.views import View
 from django.http import JsonResponse, HttpResponseBadRequest
 
 from ..models import Course
-from ..views import SearchMixin
+from ..views import QueryAndQuerysetMixin
 
 
-class CoursesListAPIView(View, SearchMixin):
+class CoursesListAPIView(View, QueryAndQuerysetMixin):
     paginate_by = 9
     category = None
     search = False
@@ -76,3 +76,7 @@ class OthersCoursesListAPIView(CoursesListAPIView):
 
 class CourseSearchAPIView(CoursesListAPIView):
     search = True
+
+
+class AllCoursesAPIView(CoursesListAPIView):
+    all = True

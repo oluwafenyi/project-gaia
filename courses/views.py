@@ -16,7 +16,7 @@ from .models import Course
 from gaia.views import ExtendedView
 
 
-class SearchMixin:
+class QueryAndQuerysetMixin:
     def get_query(self, request):
         try:
             return request.GET.get('query').strip()
@@ -27,8 +27,10 @@ class SearchMixin:
         if self.query:
             lookups = Q(code__icontains=self.query) \
                 | Q(title__icontains=self.query)
-        elif self.category.isnumeric():
+        elif self.category and self.category.isnumeric():
             lookups = Q(category=self.category)
+        elif self.all:
+            return Course.objects.all().order_by('code')
         else:
             raise ImproperlyConfigured('Specify Course'
                                        ' Model Category or query')
@@ -36,7 +38,7 @@ class SearchMixin:
             .order_by('category', 'code')
 
 
-class CoursesListView(ExtendedView, SearchMixin):
+class CoursesListView(ExtendedView, QueryAndQuerysetMixin):
     paginate_by = 9
     category = None
     static_banner_path = ''
@@ -114,6 +116,12 @@ class CourseSearchView(CoursesListView):
     category = 'Search Results'
     api_name = 'course_search_api'
     search = True
+
+
+class AllCoursesView(CoursesListView):
+    category = 'All Courses'
+    api_name = 'all_courses_api'
+    all = True
 
 
 class CourseDetailView(ExtendedView):

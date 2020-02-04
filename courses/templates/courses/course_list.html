@@ -15,10 +15,17 @@ need to center message for empty course list
 
 
 <!-- ##### Category ##### -->
-<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+{% if banner_image %}
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
     style="background-image: url({{ banner_image }});">
     <h3>{{ category | upper }}</h3>
 </div>
+{% else %}
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3">
+    <h3>{{ category | upper }}</h3>
+</div>
+{% endif %}
+
 
 <!-- ##### Popular Course Area Start ##### -->
 <section class="popular-courses-area section-padding-100">

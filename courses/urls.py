@@ -7,10 +7,16 @@ from .views import (
     OthersCoursesListView,
     CourseDetailView,
     CourseSearchView,
+    AllCoursesView,
 )
 
 
 urlpatterns = [
+    path(
+        '',
+        AllCoursesView.as_view(),
+        name='all_courses',
+    ),
     path(
         '<str:category>/<str:code>/',
         CourseDetailView.as_view(),

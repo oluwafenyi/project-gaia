@@ -6,10 +6,16 @@ from .views import (
     GeophysicsCoursesListAPIView,
     OthersCoursesListAPIView,
     CourseSearchAPIView,
+    AllCoursesAPIView
 )
 
 
 urlpatterns = [
+    path(
+        '',
+        AllCoursesAPIView.as_view(),
+        name='all_courses_api',
+    ),
     path(
         'geology/',
         GeologyCoursesListAPIView.as_view(),
@@ -29,5 +35,5 @@ urlpatterns = [
         'search/',
         CourseSearchAPIView.as_view(),
         name='course_search_api',
-    )
+    ),
 ]

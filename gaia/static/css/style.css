@@ -675,7 +675,7 @@ textarea:focus {
 }
 
 .clever-main-menu .search-area form input:focus {
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid goldenrod;
 }
 
 .clever-main-menu .search-area form button {
