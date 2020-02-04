@@ -106,19 +106,28 @@
         </header>
         <!-- ##### Header Area End ##### -->
 
-        <!-- ##### Hero Area Start ##### -->
-        <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url(img/bg-img/bg1.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Hero Content -->
-                        <div class="hero-content text-center">
-                            <h2>Let's Study Together</h2>
-                            <!--<a href="#" class="btn clever-btn">Get Started</a>-->
-                        </div>
+        <!-- ##### Sectin: Slider ##### -->
+        <section class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="img/slide-img/slide1.jpeg" alt="">
+                    <div class="caption left-align">
+                        <h2>WHO ARE WE?</h2>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li>
+                    <img id="image" src="img/slide-img/slide2.jpg" alt="">
+                    <div class="caption right-align">
+                        <h2>WE ARE GEOSCIENTISTS</h2>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/slide-img/slide3.jpg" alt="">
+                    <div class="caption left-align">
+                        <h2>ONE GEOSCIENCE, ONE FAMILY</h2>
+                    </div>
+                </li>
+            </ul>
         </section>
         <!-- ##### Hero Area End ##### -->
 
@@ -678,6 +687,20 @@
         <script src="js/plugins/plugins.js"></script>
         <!-- Active js -->
         <script src="js/active.js"></script>
+
+        <!-- #### Materialize Script -->
+        <script src="js/materialize.min.js"></script>
+
+        <script>
+            //Slider 
+            const slider = document.querySelector('.slider');
+            M.Slider.init(slider, {
+                indicators: false,
+                height: 500,
+                transition: 500,
+                interval: 6000
+            });
+        </script>
     </body>
 </head>
 
