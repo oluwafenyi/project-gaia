@@ -13,6 +13,14 @@ const createElement = (elDatum, parent) => {
     if (elDatum.textContent) {
         el.textContent = elDatum.textContent;
     }
+    if (elDatum.click) {
+        el.addEventListener('click', () => {
+            window.location.href = elDatum.click;
+        });
+    }
+    if (elDatum.style) {
+        el.style = elDatum.style;
+    }
     if (elDatum.children) {
         elDatum.children.forEach((child) => {
             createElement(child, el);
@@ -28,6 +36,8 @@ const appendCourse = (course) => {
     const elData = [{
         type: 'div',
         className: 'col-12 col-md-6 col-lg-4',
+        click: course.url,
+        style: 'cursor: pointer;',
         children: [{
             type: 'div',
             className: 'single-popular-course mb-100 wow fadeInUp',
@@ -36,7 +46,7 @@ const appendCourse = (course) => {
             ],
             children: [{
                 type: 'div',
-                className: 'course-content',
+                className: 'course-content fixed-course-height',
                 children: [{
                         type: 'h5',
                         textContent: `${course.code}: ${course.title}`,
@@ -111,9 +121,12 @@ const appendCourse = (course) => {
 
 };
 
-const loadMore = (pageNumber) => {
-    const category = document.getElementById('courseList').getAttribute('category').toLowerCase();
-    const url = `/api/courses/${category}/?page=${pageNumber}`;
+const loadMore = (pageNumber, query) => {
+    let url = document.getElementById('loadMore').getAttribute('api');
+    url = url + `?page=${pageNumber}`;
+    if (query) {
+        url = url + `&query=${query}`;
+    }
     return fetch(url)
         .then(response => response.json())
         .then(response => {
@@ -128,11 +141,12 @@ const loadMore = (pageNumber) => {
 };
 
 const button = document.getElementById('loadMore');
+const query = window.location.search.substr(1).split('=')[1];
 let nextPage = 2;
 
 if (button) {
     button.addEventListener('click', () => {
-        loadMore(nextPage);
+        loadMore(nextPage, query);
         nextPage++;
     });
 }

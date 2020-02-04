@@ -30,7 +30,7 @@
                                 {% if exco.image %}
                                 <img src="{{ exco.image.url }}" alt="{{ exco.full_name }}">
                                 {% else %}
-                                <img src="{% static 'img/exc/blank_person.png' %}" alt="{{ exco.full_name }}">
+                                <img src="{% static 'img/core-img/blank_person.png' %}" alt="{{ exco.full_name }}">
                                 {% endif %}
                             </div>
                             <!-- Tutor Information -->
@@ -82,7 +82,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single-instructor d-flex align-items-center mb-30">
                             <div class="instructor-thumb">
-                                <img src="{% static 'img/exc/blank_person.png' %}" alt="default">
+                                <img src="{% static 'img/core-img/blank_person.png' %}" alt="{{ lecturer.full_name }}">
                             </div>
                             <div class="instructor-info">
                                 <h5>{{ lecturer.full_name }}</h5>

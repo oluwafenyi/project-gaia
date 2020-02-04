@@ -5,6 +5,7 @@ from .views import (
     GeologyCoursesListAPIView,
     GeophysicsCoursesListAPIView,
     OthersCoursesListAPIView,
+    CourseSearchAPIView,
 )
 
 
@@ -24,4 +25,9 @@ urlpatterns = [
         OthersCoursesListAPIView.as_view(),
         name='others_course_list_api',
     ),
+    path(
+        'search/',
+        CourseSearchAPIView.as_view(),
+        name='course_search_api',
+    )
 ]

@@ -6,6 +6,7 @@ from .views import (
     GeophysicsCoursesListView,
     OthersCoursesListView,
     CourseDetailView,
+    CourseSearchView,
 )
 
 
@@ -29,5 +30,10 @@ urlpatterns = [
         'others/',
         OthersCoursesListView.as_view(),
         name='others_course_list',
+    ),
+    path(
+        'search/',
+        CourseSearchView.as_view(),
+        name='course_search',
     ),
 ]
