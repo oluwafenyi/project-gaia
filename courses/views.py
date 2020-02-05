@@ -1,6 +1,6 @@
 
 from django.core.exceptions import ImproperlyConfigured
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.views import View
 from django.http import (
@@ -127,7 +127,7 @@ class AllCoursesView(CoursesListView):
 class CourseDetailView(ExtendedView):
 
     def get(self, request, category, code):
-        course = Course.objects.get(code__iexact=code)
+        course = get_object_or_404(Course, code__iexact=code)
         context = {'course': course}
         context.update(self.contact_context)
         return render(request, 'courses/course_detail.html', context)
