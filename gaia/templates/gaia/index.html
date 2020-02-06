@@ -11,23 +11,35 @@
 
 {% block body %}
 
-        <!-- ##### Hero Area Start ##### -->
-    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/people.jpg' %});">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <!-- Hero Content -->
-                    <div class="hero-content text-center">
-                        <h2>WE ARE GEOSCIENTISTS</h2>
-                    </div>
-                    <div class="meta d-flex align-items-center justify-content-center">
-                        <a style="color: white; margin-right:20px;">Geology</a>
-                        <span style="color: white;"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                        <a style="color: white; margin-left: 20px;">Geophysics</a>
-                    </div>
+    <!-- ##### Section: Slider ##### -->
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src="{% static 'img/slide-img/slide1.jpg' %}">
+                <div class="caption left-align">
+                    <h2>WHO ARE WE?...</h2>
                 </div>
-            </div>
-        </div>
+            </li>
+            <li>
+                <img src="{% static 'img/slide-img/slide2.jpg' %}">
+                <div class="caption right-align">
+                    <h2>WE ARE GEOSCIENTISTS...</h2>
+                </div>
+            </li>
+            <li>
+                <img src="{% static 'img/slide-img/slide3.jpg' %}">
+                <div class="caption left-align">
+                    <h2>ONE GEOSCIENCE...</h2>
+                </div>
+            </li>
+            </li>
+            <li>
+                <img id="image" src="{% static 'img/slide-img/slide4.jpg' %}">
+                <div class="caption right-align">
+                    <h2>ONE FAMILY.</h2>
+                </div>
+            </li>
+        </ul>
     </section>
     <!-- ##### Hero Area End ##### -->
 
@@ -286,3 +298,19 @@
     <!-- ##### Blog Area End ##### --> {% endcomment %}
 
 {% endblock body %}
+
+{% block scripts %}
+        <!-- #### Materialize Script -->
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+
+    <script>
+        //Slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+        });
+    </script>
+{% endblock scripts %}

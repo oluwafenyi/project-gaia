@@ -50,6 +50,129 @@ p {
     margin: 0;
 }
 
+#logo img {
+    width: 200px;
+}
+
+.slider {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+.slider.fullscreen {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slider.fullscreen ul.slides {
+    height: 100%;
+}
+
+.slider.fullscreen ul.indicators {
+    z-index: 2;
+    bottom: 30px;
+}
+
+.slider .slides {
+    background-color: #9e9e9e;
+    margin: 0;
+    height: 400px;
+}
+
+.slider .slides li {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+}
+
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.slider .slides li .caption {
+    color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    opacity: 0;
+}
+
+.slider .slides li .caption p {
+    color: #e0e0e0;
+}
+
+.slider .slides li.active {
+    z-index: 2;
+}
+
+.slider .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+.slider .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 12px;
+    background-color: #e0e0e0;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #4CAF50;
+}
+
+.slider h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+#image {
+    background-size: initial;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .hide-on-small-only,
+    .hide-on-small-and-down {
+        display: none !important;
+    }
+}
+/* End */
+
 a,
 a:hover,
 a:focus {
@@ -221,7 +344,7 @@ img {
 #preloader .spinner {
     width: 40px;
     height: 40px;
-    background-color: goldenrod;
+    background-color: #cc9933;
     margin: auto;
     -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
     animation: sk-rotateplane 1.2s infinite ease-in-out;
@@ -416,7 +539,7 @@ textarea:focus {
 /* ScrollUp */
 
 #scrollUp {
-    background-color: goldenrod;
+    background-color: #cc9933;
     border-radius: 0;
     bottom: 60px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -450,7 +573,7 @@ textarea:focus {
     display: inline-block;
     min-width: 160px;
     height: 40px;
-    background-color: goldenrod;
+    background-color: #cc9933;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -470,21 +593,21 @@ textarea:focus {
 .clever-btn:focus {
     font-size: 14px;
     font-weight: 600;
-    color: goldenrod;
+    color: #cc9933;
     background-color: white;
-    border-color: goldenrod;
+    border-color: #cc9933;
 }
 
 .clever-btn.btn-2 {
-    background-color: goldenrod;
+    background-color: #cc9933;
     border: 1px solid transparent;
     color: white;
 }
 
 .clever-btn.btn-2:hover {
-    color: goldenrod;
+    color: #cc9933;
     background-color: white;
-    border: 1px solid goldenrod;
+    border: 1px solid #cc9933;
 }
 
 .clever-btn.btn-2:focus {
@@ -675,7 +798,7 @@ textarea:focus {
 }
 
 .clever-main-menu .search-area form input:focus {
-    border: 1px solid goldenrod;
+    border: 1px solid #cc9933;
 }
 
 .clever-main-menu .search-area form button {
@@ -724,7 +847,7 @@ textarea:focus {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 14px;
-    color: goldenrod;
+    color: #cc9933;
     line-height: 40px;
 }
 
@@ -733,7 +856,7 @@ textarea:focus {
 .register-login-area a:focus {
     background-color: lightgoldenrodyellow;
     font-weight: 600;
-    color: goldenrod;
+    color: #cc9933;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -949,7 +1072,7 @@ textarea:focus {
 }
 
 .single-popular-course .seat-rating-fee .course-fee a.free {
-    background-color: goldenrod;
+    background-color: #cc9933;
 }
 
 .single-course-intro {
@@ -1900,7 +2023,7 @@ textarea:focus {
 }
 
 .single-upcoming-events .date-fee .events-fee a.free {
-    background-color: goldenrod;
+    background-color: #cc9933;
 }
 
 
@@ -2011,7 +2134,7 @@ textarea:focus {
     width: 110px;
     padding: 15px 0;
     text-align: center;
-    border: 1px solid goldenrod;
+    border: 1px solid #cc9933;
     border-radius: 6px;
     margin-right: 12px;
     font-size: 36px;
@@ -2021,7 +2144,7 @@ textarea:focus {
 
 .register-now .register-now-countdown .events-cd div span {
     margin-top: 0;
-    color: goldenrod;
+    color: #cc9933;
     font-size: 18px;
     font-weight: 700;
     display: block;
@@ -2135,7 +2258,7 @@ textarea:focus {
 
 .single-tutors-slides .tutor-information .social-info a:hover,
 .single-tutors-slides .tutor-information .social-info a:focus {
-    color: goldenrod;
+    color: #cc9933;
 }
 
 .center .single-tutors-slides .tutor-information {
@@ -2161,7 +2284,7 @@ textarea:focus {
 
 .tutors-slide .owl-prev:hover,
 .tutors-slide .owl-next:hover {
-    background-color: goldenrod;
+    background-color: #cc9933;
     color: #ffffff;
 }
 
@@ -2208,7 +2331,7 @@ textarea:focus {
 
 .single-blog-area .blog-content .blog-headline h4:hover,
 .single-blog-area .blog-content .blog-headline h4:focus {
-    color: #2c56df;
+    color: #cc9933;
 }
 
 .single-blog-area .blog-content .meta {
@@ -2468,7 +2591,7 @@ textarea:focus {
     font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: goldenrod;
+    color: #cc9933;
 }
 
 
@@ -2535,7 +2658,7 @@ textarea:focus {
     font-size: 30px;
     text-transform: uppercase;
     letter-spacing: 0.75px;
-    color: goldenrod;
+    color: #cc9933;
     margin-bottom: 0;
 }
 
@@ -2880,7 +3003,7 @@ textarea:focus {
 .single-popular-course:hover {
     /* transform: scale(1.1); */
     /* position: relative; */
-    border: solid 1px goldenrod;
+    border: solid 1px #cc9933;
     /* z-index: 1; */
     /* box-shadow: 0 3px 8px rgba(218, 165, 32, 0.5); */
     /* border-radius: 6px; */
