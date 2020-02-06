@@ -162,7 +162,7 @@ p {
 }
 
 #image {
-    background-size: contain;
+    background-size: initial;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
