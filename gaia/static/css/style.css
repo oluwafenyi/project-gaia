@@ -2823,6 +2823,10 @@ textarea:focus {
     display: block;
 }
 
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(227, 210, 27, 0.35);
+}
+
 .contact-form form textarea,
 .contact-form form textarea.form-control {
     width: 100%;
