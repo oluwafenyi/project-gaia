@@ -75,7 +75,7 @@
                         <div class="icon">
                             <img src="{% static 'img/core-img/events.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">{{ upcoming_events_count | default_if_none:"0" }}</span></h2>
+                        <h2><span class="counter">{{ upcoming_events.count | default_if_none:"0" }}</span></h2>
                         <h5>Scheduled Events</h5>
                     </div>
                 </div>
