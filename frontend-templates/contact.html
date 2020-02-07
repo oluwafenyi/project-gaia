@@ -78,7 +78,6 @@
                                     </ul>
                                 </li>
                                 <li><a href="instructors.html">Lecturers &amp; Excos</a></li>
-                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
 
@@ -231,6 +230,18 @@
     <!-- Google Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
     <script src="js/google-map/map-active.js"></script>
+    <!-- Materialize js -->
+    <script src="js/materialize.min.js"></script>
+    <script>
+        //Slider 
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+        });
+    </script>
 </body>
 
 </html>
