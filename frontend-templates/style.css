@@ -1995,7 +1995,7 @@ textarea:focus {
     width: 70px;
     height: 40px;
     border-radius: 0 0 6px 0;
-    background-color: #e3d21b;
+    background-color: goldenrod;
     text-align: center;
     line-height: 40px;
     font-size: 12px;
@@ -2453,8 +2453,8 @@ textarea:focus {
 
 .blog-details-text .post-tags ul li a:hover,
 .blog-details-text .post-tags ul li a:focus {
-    border: 1px solid #0b0b0c;
-    background-color: #0b0b0c;
+    border: 1px solid goldenrod;
+    background-color: goldenrod;
     color: #ffffff;
 }
 
@@ -2476,6 +2476,7 @@ textarea:focus {
 
 .post-a-comments h4 {
     text-align: center;
+    margin-top: 60px;
     margin-bottom: 25px;
     display: block;
     font-size: 24px;
