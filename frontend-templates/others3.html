@@ -32,15 +32,15 @@
         <div class="top-header-area d-flex justify-content-between align-items-center">
             <!-- Contact Info -->
             <div class="contact-info">
-                <a href="#"><span>Phone:</span> +234 810 866 7883</a>
+                <a href="#"><span>Phone:</span> +234 809 6733 878</a>
                 <a href="#"><span>Email:</span> info@geoscience.com</a>
             </div>
             <!-- Follow Us -->
             <div class="follow-us">
                 <span>Follow us</span>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="facebook.com/gss.unilagchapter.1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="instagram.com/ulgss/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="twitter.com/ulgss1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
         </div>
 
@@ -78,7 +78,6 @@
                                     </ul>
                                 </li>
                                 <li><a href="instructors.html">Lecturers &amp; Excos</a></li>
-                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
 
@@ -89,13 +88,6 @@
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-
-                            <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
-
                         </div>
                         <!-- Nav End -->
                     </div>
@@ -312,6 +304,31 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <!--<img src="img/bg-img/c6.jpg" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h5>PQ(s)</h5>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">All Lecturers</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Past Questions</a>
+                            </div>
+                            <p>Containing Pasquestions from various levels.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+                                <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i> All units
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     </section>
     <!-- ##### Popular Course Area End ##### -->
@@ -346,15 +363,15 @@
         <div class="bottom-footer-area d-flex justify-content-between align-items-center">
             <!-- Contact Info -->
             <div class="contact-info">
-                <a href="#"><span>Phone:</span> +234 810 866 7883</a>
+                <a href="#"><span>Phone:</span> +234 809 6733 878</a>
                             <a href="#"><span>Email:</span> info@geoscience.com</a>
                     </div>
                     <!-- Follow Us -->
                     <div class="follow-us">
                         <span>Follow us</span>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="facebook.com/gss.unilagchapter.1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="instagram.com/ulgss/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="twitter.com/ulgss1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </div>
                 </div>
     </footer>
@@ -371,6 +388,18 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Materialize js -->
+    <script src="js/materialize.min.js"></script>
+    <script>
+        //Slider 
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+        });
+    </script>
 </body>
 
 </html>

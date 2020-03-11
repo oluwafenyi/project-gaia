@@ -32,15 +32,15 @@
         <div class="top-header-area d-flex justify-content-between align-items-center">
             <!-- Contact Info -->
             <div class="contact-info">
-                <a href="#"><span>Phone:</span> +234 810 866 7883</a>
+                <a href="#"><span>Phone:</span> +234 809 6733 878</a>
                 <a href="#"><span>Email:</span> info@geoscience.com</a>
             </div>
             <!-- Follow Us -->
             <div class="follow-us">
                 <span>Follow us</span>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="facebook.com/gss.unilagchapter.1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="instagram.com/ulgss/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="twitter.com/ulgss1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
         </div>
 
@@ -78,7 +78,6 @@
                                     </ul>
                                 </li>
                                 <li><a href="instructors.html">Lecturers &amp; Excos</a></li>
-                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
 
@@ -89,13 +88,6 @@
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-
-                            <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
-
                         </div>
                         <!-- Nav End -->
                     </div>
@@ -479,15 +471,15 @@
         <div class="bottom-footer-area d-flex justify-content-between align-items-center">
             <!-- Contact Info -->
             <div class="contact-info">
-                <a href="#"><span>Phone:</span> +234 810 866 7883</a>
+                <a href="#"><span>Phone:</span> +234 809 6733 878</a>
                             <a href="#"><span>Email:</span> info@geoscience.com</a>
                     </div>
                     <!-- Follow Us -->
                     <div class="follow-us">
                         <span>Follow us</span>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="facebook.com/gss.unilagchapter.1" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="instagram.com/ulgss/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="twitter.com/ulgss1" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </div>
                 </div>
     </footer>
@@ -504,6 +496,18 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Materialize js -->
+    <script src="js/materialize.min.js"></script>
+    <script>
+        //Slider 
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+        });
+    </script>
 </body>
 
 </html>
