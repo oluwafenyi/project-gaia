@@ -83,8 +83,11 @@
 
                 <div class="col-12 col-lg-4">
                     <div class="course-sidebar">
+                        {% if course.drive_link %}
                         <!-- Buy Course -->
-                        <a href="#" class="btn clever-btn mb-30 w-100">Download Course</a>
+                        <a href="{{ course.drive_link }}" class="btn clever-btn mb-30 w-100">Download Course</a>
+                        {% endif %}
+
 
                         <!-- Widget -->
                         <div class="sidebar-widget">
