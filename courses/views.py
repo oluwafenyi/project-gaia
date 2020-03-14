@@ -127,6 +127,19 @@ class CourseDetailView(ExtendedView):
 
     def get(self, request, category, code):
         course = get_object_or_404(Course, code__iexact=code)
-        context = {'course': course}
+        pre = course.prerequisites.split(', ')
+        prerequisites = []
+        for code in pre:
+            try:
+                prerequisites.append(Course.objects.get(code=code))
+            except Course.DoesNotExist:
+                pass
+        curriculum = course.curriculum.split('. ') if course.curriculum else\
+            None
+        context = {
+            'course': course,
+            'prerequisites': prerequisites,
+            'curriculum': curriculum
+        }
         context.update(self.contact_context)
         return render(request, 'courses/course_detail.html', context)

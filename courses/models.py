@@ -21,8 +21,10 @@ class Course(models.Model):
     category = models.CharField(choices=CATEGORIES, max_length=2)
     units = models.PositiveIntegerField(null=True)
     description = models.TextField(blank=True)
+    curriculum = models.TextField(blank=True)
     drive_link = models.URLField(blank=True)
     lecturers = models.ManyToManyField(Lecturer, related_name='courses')
+    prerequisites = models.TextField(blank=True)
 
     def __str__(self):
         return self.code
