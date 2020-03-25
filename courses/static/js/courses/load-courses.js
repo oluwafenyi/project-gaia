@@ -36,83 +36,81 @@ const appendCourse = (course) => {
     const elData = [{
         type: 'div',
         className: 'col-12 col-md-6 col-lg-4',
-        click: course.url,
-        style: 'cursor: pointer;',
-        children: [{
-            type: 'div',
-            className: 'single-popular-course mb-100 wow fadeInUp',
-            customAttributes: [
-                ['data-wow-delay', '250ms']
-            ],
-            children: [{
-                type: 'div',
-                className: 'course-content fixed-course-height',
-                children: [{
-                        type: 'h5',
-                        textContent: `${course.code}: ${course.title}`,
-                    },
-                    {
-                        type: 'div',
-                        className: 'meta d-flex align-items-center',
-                        children: [
-                            ...course.lecturers.map((lecturer) => {
-                                return {
-                                    type: 'a',
-                                    textContent: lecturer,
-                                }
-                            }),
-                            {
-                                type: 'span',
-                                children: [{
-                                    type: 'i',
-                                    className: 'fa fa-circle',
-                                    customAttributes: [
-                                        ['aria-hidden', 'true']
-                                    ]
-                                }]
-                            },
-                            {
-                                type: 'a',
-                                textContent: course.category,
-                                customAttributes: [
-                                    ['href', '#']
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        type: 'p',
-                        textContent: course.description
-                    },
-                ]
-            },
+        children: [
             {
-                type: 'div',
-                className: 'seat-rating-fee d-flex justify-content-between',
+                type: 'a',
+                customAttributes: [['href', course.url]],
                 children: [
                     {
                         type: 'div',
-                        className: 'seat-rating h-100 d-flex align-items-center',
-                        children: [
-                            {
-                                type: 'div',
-                                className: 'rating',
-                                children: [
-                                    {
-                                        type: 'i',
-                                        className: 'fa fa-star',
-                                        customAttributes: [
-                                            ['aria-hidden', 'true'],
-                                        ],
-                                    }
-                                ],
-                                textContent: `${course.units} Units `,
-                            },
-                        ],
+                        className: 'single-popular-course mb-100 wow fadeInUp',
+                        customAttributes: [['data-wow-delay', '250ms']],
+                        children: [{
+                            type: 'div',
+                            className: 'course-content fixed-course-height',
+                            children: [{
+                                    type: 'h5',
+                                    textContent: `${course.code}: ${course.title}`,
+                                },
+                                {
+                                    type: 'div',
+                                    className: 'meta d-flex align-items-center',
+                                    children: [
+                                        ...course.lecturers.map((lecturer) => {
+                                            return {
+                                                type: 'p',
+                                                textContent: lecturer,
+                                                className: 'card-label'
+                                            }
+                                        }),
+                                        {
+                                            type: 'span',
+                                            children: [{
+                                                type: 'i',
+                                                className: 'fa fa-circle',
+                                                customAttributes: [['aria-hidden', 'true']]
+                                            }]
+                                        },
+                                        {
+                                            type: 'p',
+                                            textContent: course.category,
+                                            className: 'card-label'
+                                        }
+                                    ]
+                                },
+                                {
+                                    type: 'p',
+                                    textContent: course.description
+                                },
+                            ]
+                        },
+                        {
+                            type: 'div',
+                            className: 'seat-rating-fee d-flex justify-content-between',
+                            children: [
+                                {
+                                    type: 'div',
+                                    className: 'seat-rating h-100 d-flex align-items-center',
+                                    children: [
+                                        {
+                                            type: 'div',
+                                            className: 'rating',
+                                            children: [
+                                                {
+                                                    type: 'i',
+                                                    className: 'fa fa-star',
+                                                    customAttributes: [['aria-hidden', 'true']]
+                                                }
+                                            ],
+                                            textContent: `${course.units} Units `,
+                                        },
+                                    ],
+                                },
+                            ],
+                        }, ]
                     },
-                ],
-            }, ]
-        }, ]
+                ]
+            },]
     }, ];
 
     elData.forEach(element => {

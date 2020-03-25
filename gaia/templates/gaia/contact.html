@@ -65,25 +65,45 @@
                     <div class="contact-form">
                         <h4>Get In Touch</h4>
 
-                        <form action="#" method="post">
+                        <form action="{% url 'contact' %}" method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-lg-6">
+                                    {% if form.name.value %}
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="text" placeholder="Name">
+                                        <input type="text" class="form-control" value="{{ form.name.value }}" id="text" name="name" placeholder="Name">
                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="text" name="name" placeholder="Name">
+                                    </div>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12 col-lg-6">
+                                    {% if form.email.value %}
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" class="form-control" value="{{ form.email.value }}" id="email" name="from_email" placeholder="Email">
                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" name="from_email" placeholder="Email">
+                                    </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="col-12">
+                                    {% if form.message.value %}
                                     <div class="form-group">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                        <textarea name="message" class="form-control" value="{{ form.message.value }}" id="message" name="message" cols="30" rows="10" placeholder="Message"></textarea>
                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <textarea name="message" class="form-control" id="message" name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    </div>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn clever-btn w-100">Send</button>
+                                    <button class="btn clever-btn w-100" type="submit">Send</button>
                                 </div>
                             </div>
                         </form>

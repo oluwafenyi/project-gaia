@@ -21,9 +21,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Description</a>
                                 </li>
+                                {% if curriculum %}
                                 <li class="nav-item">
                                     <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="true">Curriculum</a>
                                 </li>
+                                {% endif %}
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
@@ -63,6 +65,7 @@
                                     </div>
                                 </div>
 
+                                {% if curriculum %}
                                 <!-- Tab Text -->
                                 <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
                                     <div class="clever-curriculum">
@@ -70,12 +73,18 @@
                                         <!-- About Curriculum -->
                                         <div class="about-curriculum mb-30">
                                             <h4>Syllabus</h4>
-                                            <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum lorem dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis ultrices ex.
-                                                Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra dolor. In et suscipit ex.
-                                                Pellentesque aliquet velit tortor, eget placerat mi scelerisque a. Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum enim.</p>
+                                            <ul>
+                                            {% for topic in curriculum %}
+                                                <li style="list-style: circle;">
+                                                    <p>{{ topic }}</p>
+                                                </li>
+                                            {% endfor %}
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
+
                             </div>
                         </div>
                     </div>
@@ -83,8 +92,11 @@
 
                 <div class="col-12 col-lg-4">
                     <div class="course-sidebar">
+                        {% if course.drive_link %}
                         <!-- Buy Course -->
-                        <a href="#" class="btn clever-btn mb-30 w-100">Download Course</a>
+                        <a href="{{ course.drive_link }}" class="btn clever-btn mb-30 w-100">Download Course</a>
+                        {% endif %}
+
 
                         <!-- Widget -->
                         <div class="sidebar-widget">
@@ -94,10 +106,21 @@
                                     <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Duration</h6>
                                     <h6>16 Weeks</h6>
                                 </li>
+                                {% if course.units %}
                                 <li>
                                     <h6><i class="fa fa-star" aria-hidden="true"></i> Units</h6>
                                     <h6>{{ course.units }}</h6>
                                 </li>
+                                {% endif %}
+                                {% if prerequisites %}
+                                <li>
+                                    <h6><i class="fa fa-exclamation-circle"></i> Prerequisites</h6>
+                                    <h6>
+                                    {% for pre in prerequisites %}
+                                    <a href="{{ pre.get_absolute_url }}">{{ pre.code }}</a>{% endfor %}
+                                    </h6>
+                                </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>

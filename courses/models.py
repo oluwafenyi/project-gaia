@@ -19,10 +19,12 @@ class Course(models.Model):
     title = models.CharField(max_length=400)
     code = models.CharField(max_length=6, unique=True)
     category = models.CharField(choices=CATEGORIES, max_length=2)
-    units = models.PositiveIntegerField()
-    description = models.TextField()
+    units = models.PositiveIntegerField(null=True)
+    description = models.TextField(blank=True)
+    curriculum = models.TextField(blank=True)
     drive_link = models.URLField(blank=True)
     lecturers = models.ManyToManyField(Lecturer, related_name='courses')
+    prerequisites = models.TextField(blank=True)
 
     def __str__(self):
         return self.code

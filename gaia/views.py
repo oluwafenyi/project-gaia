@@ -1,5 +1,6 @@
 
 from django.conf import settings
+from django.contrib.messages import success
 from django.views import View
 from django.shortcuts import render
 from django.utils import timezone
@@ -7,6 +8,7 @@ from django.utils import timezone
 from courses.models import Course
 from people.models import Executive
 from events.models import Event
+from .forms import ContactForm
 
 
 class ExtendedView(View):
@@ -41,3 +43,17 @@ class ContactPageView(ExtendedView):
         context = {}
         context.update(self.contact_context)
         return render(request, 'gaia/contact.html', context=context)
+
+    def post(self, request):
+        context = {}
+        context.update(self.contact_context)
+
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            mail_sent = form.send_mail()
+            if mail_sent:
+                context.update({'form': ContactForm()})
+                success(request, 'Email sent successfully.')
+                return render(request, 'gaia/contact.html', context)
+        context.update({'form': form})
+        return render(request, 'gaia/contact.html', context)
