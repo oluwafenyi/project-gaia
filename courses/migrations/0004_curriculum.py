@@ -52,18 +52,8 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            'course',
-            'curriculum',
-            models.TextField(blank=True)
-        ),
-        migrations.AddField(
-            'course',
-            'prerequisites',
-            models.TextField(blank=True)
-        ),
         migrations.RunPython(
             add_curriculum_and_prerequisites,
             remove_curriculum_and_prerequisites
-        )
+        ),
     ]
