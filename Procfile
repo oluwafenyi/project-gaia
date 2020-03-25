@@ -1,2 +1,2 @@
-release: python manage.py migrate --fake events
+release: python manage.py migrate
 web: gunicorn config.wsgi --log-file -
