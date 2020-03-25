@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ block.super }} {{ block.title }}
+{% endblock title %}
+
+
+{% block body %}
+
+
+    <div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" {% if event.image %} style="background-image: url({{ event.image.url }});" {% else %} style="background-image: url({% static 'img/bg-img/e1.jpg' %});" {% endif %}>
+        <div class="blog-details-headline">
+            <h3>{{ event.title }}</h3>
+        </div>
+    </div>
+
+    <!-- ##### Blog Details Content ##### -->
+    <div class="blog-details-content section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Blog Details Text -->
+                    <div class="blog-details-text">
+                        <p>{{ event.description }}</p>
+
+                        <!-- Tags -->
+                        <div class="post-tags">
+                            <ul>
+                                {% if event.organisers %}
+                                    <li>{{ event.organisers }}</li>
+                                {% endif %}
+                                <li>{{ event.start_date }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} <div class="container">
+            <div class="row justify-content-center">
+                <!-- Post A Comment -->
+                <div class="col-12 col-lg-6">
+                    <div class="post-a-comments mb-70">
+                        <h4>Post a Comment</h4>
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="text" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn clever-btn w-100">Post A Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Comments -->
+                <div class="col-12 col-lg-6">
+                    <div class="comments-area">
+                        <h4>Comments (3)</h4>
+
+                        <ol class="comments-list">
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Single Comment -->
+                                <div class="single-comment-wrap mb-30">
+                                    <div class="d-flex justify-content-between mb-30">
+                                        <!-- Comment Admin -->
+                                        <div class="comment-admin d-flex">
+                                            <div class="thumb">
+                                                <img src="img/bg-img/t1.jpg" alt="">
+                                            </div>
+                                            <div class="text">
+                                                <h6>Taiwo Kassim</h6>
+                                                <span>Mar 29, 2020 at 9:48 am</span>
+                                            </div>
+                                        </div>
+                                        <!-- Reply -->
+                                        <div class="reply">
+                                            <a href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                    <p>Ginger!!!.</p>
+                                </div>
+
+                                <ol class="children">
+                                    <li class="single_comment_area">
+                                        <!-- Single Comment -->
+                                        <div class="single-comment-wrap">
+                                            <div class="d-flex justify-content-between mb-30">
+                                                <!-- Comment Admin -->
+                                                <div class="comment-admin d-flex">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/t2.jpg" alt="">
+                                                    </div>
+                                                    <div class="text">
+                                                        <h6>Ajor Moses</h6>
+                                                        <span>Mar 29, 2020 at 9:48 am</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Reply -->
+                                                <div class="reply">
+                                                    <a href="#">Reply</a>
+                                                </div>
+                                            </div>
+                                            <p>Great work guys.</p>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+
+                            <li class="single_comment_area mb-30">
+                                <!-- Single Comment -->
+                                <div class="single-comment-wrap">
+                                    <div class="d-flex justify-content-between mb-30">
+                                        <!-- Comment Admin -->
+                                        <div class="comment-admin d-flex">
+                                            <div class="thumb">
+                                                <img src="img/bg-img/t3.jpg" alt="">
+                                            </div>
+                                            <div class="text">
+                                                <h6>Bako Mandi</h6>
+                                                <span>Mar 29, 2020 at 9:48 am</span>
+                                            </div>
+                                        </div>
+                                        <!-- Reply -->
+                                        <div class="reply">
+                                            <a href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                    <p>This is dope, I love everything about this site, it gives me the latest update in Geoscience and allows me access lecture files easily. Kudos guys.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+    </div>
+
+{% endblock body %}

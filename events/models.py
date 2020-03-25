@@ -1,4 +1,5 @@
 
+from django.urls import reverse
 from django.utils.text import slugify
 from django.db import models
 
@@ -22,15 +23,19 @@ def create_unique_slug(model, instance):
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/events/', blank=True)
+    image = models.ImageField(upload_to='images/events/')
     start_date = models.DateTimeField()
     end_date = models.DateTimeField(null=True, blank=True)
     ticket_price = models.FloatField(null=True, default=0.0)
     slug = models.SlugField(unique=True, blank=False)
     description = models.TextField()
+    organisers = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('event_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.end_date:

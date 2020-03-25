@@ -48,15 +48,15 @@
         <div class="container">
             <div class="row">
                 <!-- Single Cool Facts Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                {% comment %} <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <div class="icon">
                             <img src="{% static 'img/core-img/docs.png' %}" alt="">
                         </div>
-                        <h2><span class="counter">{{ blog_posts_count | default_if_none:"0" }}</span></h2>
-                        <h5>Blog Posts</h5>
+                        <h2><span class="counter">20</span></h2>
+                        <h5>Past Questions</h5>
                     </div>
-                </div>
+                </div> {% endcomment %}
 
                 <!-- Single Cool Facts Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -208,9 +208,11 @@
 
                     {% for event in upcoming_events %}
                         <!-- Single Upcoming Events -->
-                        <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="{{ event.get_absolute_url }}">
                             <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
-                                <!-- Events Thumb -->
+                                    <!-- Events Thumb -->
                                 <div class="events-thumb">
                                     {% if event.image %}
                                         <img src="{{ event.image.url }}" alt="{{ event.title }}">
@@ -234,68 +236,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
+
                     {% endfor %}
                 </div>
             </div>
         </section>
         <!-- ##### Upcoming Events End ##### -->
     {% endif %}
-
-
-    {% comment %} <!-- ##### Blog Area Start ##### -->
-    <section class="blog-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h3>From Our Blog</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Blog Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="250ms">
-                        <img src="{% static 'img/blog-img/1.jpg' %}" alt="">
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="blog-headline">
-                                <h4>English Grammer</h4>
-                            </a>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Sarah Parker</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Art &amp; Design</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'img/blog-img/2.jpg' %}" alt="">
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="blog-headline">
-                                <h4>English Grammer</h4>
-                            </a>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Sarah Parker</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Art &amp; Design</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Blog Area End ##### --> {% endcomment %}
 
 {% endblock body %}
 

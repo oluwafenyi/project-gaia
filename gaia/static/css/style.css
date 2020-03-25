@@ -2455,15 +2455,15 @@ textarea:focus {
     display: flex;
 }
 
-.blog-details-text .post-tags ul li a {
+.blog-details-text .post-tags ul li {
     display: inline-block;
     padding: 0 15px;
     border: 1px solid #ebebeb;
     line-height: 23px;
     height: 25px;
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #cc9933;
     border-radius: 6px;
     margin-right: 10px;
 }
@@ -3012,6 +3012,13 @@ textarea:focus {
     /* box-shadow: 0 3px 8px rgba(218, 165, 32, 0.5); */
     /* border-radius: 6px; */
     /* background-color: #ffffff; */
+}
+p.card-label {
+    color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

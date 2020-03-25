@@ -35,17 +35,18 @@ need to center message for empty course list
             {% for course in courses %}
 
             <!-- Single Popular Course -->
-                <div class="col-12 col-md-6 col-lg-4" onclick="window.location.href='{{ course.get_absolute_url }}'" style="cursor: pointer;">
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="{{ course.get_absolute_url }}">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <!-- Course Content -->
                         <div class="course-content fixed-course-height">
                             <h5>{{ course.code }}: {{ course.title }}</h5>
                             <div class="meta d-flex align-items-center">
                                 {% for lecturer in course.lecturers.all %}
-                                <a>{{ lecturer.full_name }}</a>
+                                <p class="card-label">{{ lecturer.full_name }}</p>
                                 {% endfor %}
                                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a>{{ course.verbose_category }}</a>
+                                <p class="card-label">{{ course.verbose_category }}</p>
                             </div>
                             <p>{{ course.description }}</p>
                         </div>
@@ -58,7 +59,8 @@ need to center message for empty course list
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
             {% empty %}
 
             <h5>Oops, there are no courses listed here.</h5>

@@ -14,5 +14,6 @@ urlpatterns = [
     path('contact/', ContactPageView.as_view(), name='contact'),
     path('courses/', include('courses.urls')),
     path('people/', include('people.urls')),
+    path('events/', include('events.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
