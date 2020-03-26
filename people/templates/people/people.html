@@ -40,16 +40,16 @@
                                 {% if exco.whatsapp_link or exco.instagram or exco.twitter %}
                                     <div class="social-info">
                                         {% if exco.whatsapp_link %}
-                                            <a href="{{ exco.whatsapp_link }}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                            <a href="{{ exco.whatsapp_link }}" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                                         {% endif %}
                                         {% if exco.instagram %}
-                                            <a href="https://instagram.com/{{ exco.instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                            <a href="https://instagram.com/{{ exco.instagram }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                         {% endif %}
                                         {% if exco.twitter %}
-                                            <a href="https://twitter.com/{{ exco.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            <a href="https://twitter.com/{{ exco.twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                         {% endif %}
                                         {% if exco.snapchat_link %}
-                                            <a href="{{ exco.snapchat_link }}"><i class="fa fa-snapchat" aria-hidden="true"></i></a>
+                                            <a href="{{ exco.snapchat_link }}" target="_blank"><i class="fa fa-snapchat" aria-hidden="true"></i></a>
                                         {% endif %}
                                     </div>
                                 {% endif %}
