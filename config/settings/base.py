@@ -92,7 +92,7 @@ USE_L10N = True
 USE_TZ = True
 
 OUR_CONTACT_INFO = {
-    'tel': '+2348108667883',
+    'tel': '+2348096733878',
     'email': 'info@geoscience.com',
     'facebook': 'https://facebook.com/gss.unilagchapter.1',
     'twitter': 'https://twitter.com/ulgss1',
